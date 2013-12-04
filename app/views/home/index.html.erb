@@ -1,0 +1,30 @@
+    <!-- video player space begins -->
+<div id="video_playspace">
+  <iframe width="560" height="315" src="//www.youtube.com/embed/BBAtAM7vtgc" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="player_controls">
+  <br>
+  <button id="previous">previous</stop>
+  <button id="stop">stop</button>
+  <button id="play">play</button>
+  <button id="next">next</button>
+</div>
+<br><br>
+  <!-- video player space ends -->
+
+  <!-- playlist & user_add_section template starts -->
+<div id="songlist">
+</div>
+
+  <!-- playlist & user_add_section template ends -->
+
+
+
+<script>
+$(function() {
+  Juketube.SongsRouter = new Juketube.Routers.Router();
+  Backbone.history.start();
+})
+</script>
+

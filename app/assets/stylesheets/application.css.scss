@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+  // Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// Responsive styles go here in case you want them
+@import "bootstrap-responsive";
+
+// And finally bootswatch style itself
+@import "bootswatch/cerulean/bootswatch";
+
+// Whatever application styles you have go last
+//@import "base";
+
+
+//= require bootstrap
+
+ *= require_self
+ *= require_tree .
+ */
+
+
+
+#playlist {
+  border: 2px solid;
+  border-radius: 25px;
+  margin-right: 43px;
+  height: 100px;
+}
+
+#previous,
+#stop,
+#play,
+#next {
+  margin: 0px 40px;
+}
+
+body {
+  margin-left: 37px;
+}
+
+
