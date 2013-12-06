@@ -1,16 +1,21 @@
 <!-- jukebox queue begins -->
-  <p><Center>
-  next up is:  artist ... "title" ... from user 2</center>
-  </p>
-
 <br>
-  queue:
+queue:
+<div id="playlist_border">
   <ul id="playlist">
-  </ul>
-  <button id="shuffle">random shuffle</button>
-  <!-- jukebox queue ends -->
 
-  <!-- add songs here -->
+
+    {{#songs}}
+    <li>{{artist}} ... "{{title}}" ... from {{user_id.email}} <button id="remove">remove</button> <a href="#">up</a> <a href="#">down</a></li>
+    {{/songs}}
+
+
+  </ul>
+</div>
+<!-- jukebox queue ends -->
+
+<!-- add songs here -->
+<br>
 <div id="user_add_section">
   <form name="input" action="/songs">
     artist:
@@ -21,7 +26,4 @@
   </form>
 </div>
 <br><br><br>
-
-
-
-  <!-- add songs ends -->
+<!-- add songs ends -->

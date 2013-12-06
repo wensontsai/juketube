@@ -1,14 +1,16 @@
     <!-- video player space begins -->
-<div id="video_playspace">
-  <iframe width="560" height="315" src="//www.youtube.com/embed/BBAtAM7vtgc" frameborder="0" allowfullscreen></iframe>
-</div>
+<div id="ytplayer"></div>
 
-<div id="player_controls">
   <br>
-  <button id="previous">previous</stop>
-  <button id="stop">stop</button>
+<div id="player_controls">
+
+ <!--  <button id="previous">previous</stop> -->
+ <!--  <button id="stop">stop</button>
   <button id="play">play</button>
-  <button id="next">next</button>
+  <button id="next">next</button>-->
+
+  <button id="shuffle">shuffle play order</button>
+
 </div>
 <br><br>
   <!-- video player space ends -->
@@ -26,5 +28,66 @@ $(function() {
   Juketube.SongsRouter = new Juketube.Routers.Router();
   Backbone.history.start();
 })
+
+  var keyword;
+  var video_id;
+  var video_title;
+
+
+  // var yt_url = 'http://gdata.youtube.com/feeds/api/videos?q='+keyword+'&format=5&max-results=1&v=2&alt=jsonc';
+
+  var songID = 'qZN02hVenCo';
+  //var songID = video_id;
+
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+  var player;
+
+  function onYouTubePlayerAPIReady() {
+      player = new YT.Player('ytplayer', {
+        height: '390',
+        width: '640',
+        playerVars:
+        {
+          listType:'playlist',
+          list: 'PLOiWtzAHWI7kghjD8Cl44gsHNIQ9p--Ws',
+          autoplay: true
+        }
+        // events:
+        // {
+        //       'onReady': onPlayerReady
+        // }
+      });
+
+
+      // function onPlayerReady(event) {
+      //   event.this.setShuffle(shufflePlaylist: true);
+      // }
+
+  }
+
+
+
+
+  // var randomShuffle = function(){
+  //   player.setShuffle(shufflePlaylist:true);
+  // }
+
+
+  // $('#shuffle').click(randomShuffle(e){
+  //   e.preventDefault();
+  // });
+    // var random = function(){
+  //   player.setShuffle( shufflePlaylist:true ):Void;
+  // }
+
+
+
 </script>
 

@@ -17,10 +17,8 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-
     # @song.user.email = @current_user_email
     # @song_title = @song.title
-
 
     # Pusher.url = "http://e62120585d5bc2df212c:6c579741ff37a44ece9a@api.pusherapp.com/apps/59414"
 
@@ -68,7 +66,7 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.permit(:user_id, :artist, :title, :url)
+      params.require(:song).permit(:user_id, :artist, :title, :url, :video_id, :video_title)
     end
 
 end

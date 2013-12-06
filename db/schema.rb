@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202050932) do
+ActiveRecord::Schema.define(version: 20131205003031) do
 
   create_table "jukeboxes", force: true do |t|
     t.integer  "song_id"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20131202050932) do
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "video_title"
+    t.string   "video_id"
   end
 
   create_table "users", force: true do |t|

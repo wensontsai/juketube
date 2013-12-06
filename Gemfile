@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'httparty'
+gem 'thin'
 gem 'devise'
 
 gem 'handlebars_assets'
@@ -60,4 +62,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+# gem 'debugger'
