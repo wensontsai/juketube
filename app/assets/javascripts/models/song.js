@@ -2,8 +2,8 @@ Juketube.SongItem = Backbone.Model.extend({
   urlRoot: '/songs',
 
   defaults: {
-    title: 'enter',
-    artist: 'Icona Pop'
+    title: 'i dunno song',
+    artist: 'i dunno artist'
   }
 
 });

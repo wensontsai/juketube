@@ -14,8 +14,8 @@ Juketube.SongsView = Backbone.View.extend({
     var self = this;
     this.collection = new Juketube.SongsList();
     var data = this.collection.fetch({
-        success:function() {
-          console.log(data);
+        success:function(collection) {
+          // console.log(data);
           self.render();
 
     // success: function(collection) {
@@ -43,6 +43,9 @@ Juketube.SongsView = Backbone.View.extend({
       return x.toJSON() })
     };
 
+    this.$el.html( this.template(songlist) );
+    return this;
+
     // var songlist = {song: this.model.map(function(x) {
     //   return x.toJSON() })
     // };
@@ -60,8 +63,6 @@ Juketube.SongsView = Backbone.View.extend({
     // return this;
 
 
-    this.$el.html( this.template(songlist) );
-    return this;
   },
 
   newAttributes: function(){
@@ -130,8 +131,6 @@ Juketube.SongsView = Backbone.View.extend({
             $.each(response.data.items, function(i,data){
                  video_id = data.id;
                  video_title = data.title;
-
-
             });
           } else {
                  video_title = "no video";
@@ -142,20 +141,19 @@ Juketube.SongsView = Backbone.View.extend({
     //append to DOM
     this.addOne();
 
-    //clear input fields
-    $('#artist_field').val('');
-    $('#title_field').val('');
   },
 
 
   addOne: function(event){
     if (event)
       event.preventDefault();
-    var new_attrs = this.newAttributes();
-    debugger
-    var song = Juketube.Songs.create( new_attrs );
+    var song = Juketube.Songs.create( this.newAttributes());
     var songView = new Juketube.SongView({model: song});
     this.$el.find("#playlist").append(songView.render().el);
+
+    //clear input fields
+    $('#artist_field').val('');
+    $('#title_field').val('');
   },
 
   clear: function(){
