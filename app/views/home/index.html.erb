@@ -28,7 +28,8 @@ $(function() {
   Backbone.history.start();
 });
 
-
+  var user_email = '<%=current_user.email%>';
+  var user_id = <%=current_user.id%>;
   var keyword;
   var artist;
   var title;
@@ -47,7 +48,7 @@ $(function() {
   // YouTube player after the API code downloads.
   var player;
 
- function onYouTubePlayerAPIReady(songID) {
+ function onYouTubePlayerAPIReady() {
       player = new YT.Player('ytplayer', {
         height: '390',
         width: '640',
@@ -100,7 +101,6 @@ $(function() {
 
   $('#play').click(function(event){
     event.preventDefault();
-      songID = video_ID;
       onYouTubePlayerAPIReady(songID);
 
   });

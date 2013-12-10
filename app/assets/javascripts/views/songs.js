@@ -42,13 +42,14 @@ Juketube.SongsView = Backbone.View.extend({
 
 
   render: function(){
+    user_email = user_email;
     var songlist = {songs: this.collection.models.map(function(x) {
-      console.log(x);
+      // console.log(x);
       return x.toJSON() })
 
     };
 
-     debugger;
+    debugger;
     this.$el.html( this.template(songlist) );
     return this;
 
@@ -61,11 +62,12 @@ Juketube.SongsView = Backbone.View.extend({
 
   newAttributes: function(){
     return {
-      artist: $(this.el).find('#artist_field').val(),
-      title: $(this.el).find('#title_field').val(),
+      artist: artist,
+      title: title,
       url : "https://www.youtube.com/watch?v=" + video_id,
       video_id: video_id,
-      video_title: video_title
+      video_title: video_title,
+      user_id : user_id
       };
     },
 
@@ -128,7 +130,9 @@ Juketube.SongsView = Backbone.View.extend({
             $.each(response.data.items, function(i,data){
                  video_id = data.id;
                  video_title = data.title;
+
             });
+            // console.log('data');
           } else {
                  video_title = "no video";
           }
