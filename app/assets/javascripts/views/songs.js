@@ -7,7 +7,7 @@ Juketube.SongsView = Backbone.View.extend({
   events: {
     'click #add_to_queue'  : 'createOnClick',
     // 'click #add_to_queue'  : 'addToYouTube',
-    'click #remove' : 'clear'
+    'click .remove' : 'clear'
   },
 
   initialize: function() {
@@ -35,6 +35,7 @@ Juketube.SongsView = Backbone.View.extend({
     });
 
     this.model = new Juketube.SongItem();
+
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model, 'destroy', this.remove);    
   },
@@ -42,9 +43,12 @@ Juketube.SongsView = Backbone.View.extend({
 
   render: function(){
     var songlist = {songs: this.collection.models.map(function(x) {
+      console.log(x);
       return x.toJSON() })
+
     };
 
+     debugger;
     this.$el.html( this.template(songlist) );
     return this;
 
@@ -151,10 +155,13 @@ Juketube.SongsView = Backbone.View.extend({
   },
 
   clear: function(){
+    var model_id = $('.remove').attr('data-id');
+    this.model = this.collection.get(model_id);
     this.model.destroy();
-  }
+    return this;
+    }
 
 
-});
+  });
 
 
