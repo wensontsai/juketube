@@ -32,7 +32,8 @@ body { padding-top: 60px; }
 
 #playlist {
   height: 200px;
-  overflow: scroll;
+  overflow: hidden;
+  width: 640px
 }
 
 
@@ -41,6 +42,7 @@ body { padding-top: 60px; }
   border-radius: 25px;
   margin-right: 43px;
   height: 200px;
+  width:640px;
 }
 
 #previous,
