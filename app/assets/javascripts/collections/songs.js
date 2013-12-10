@@ -37,24 +37,3 @@ Juketube.Songs = new Juketube.SongsList();
 
 
 
-// songsList.length();
-// songsList.add(song1);
-// songsList.at(0);
-// songsList.get(1);
-// songsList.remove(song1);
-// songsList.fetch();
-
-// songsList.on('event-name', function(){
-//   alert('event-name happend!');
-// });
-
-// songsList.trigger('event-name');
-
-// songsList.fetch();
-// songsList.reset();
-
-// songsList.forEach(function(song){
-//   alert(song.get('url'));
-// });
-
-

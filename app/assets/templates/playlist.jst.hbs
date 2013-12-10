@@ -6,7 +6,7 @@ queue:
 
 
     {{#songs}}
-    <li>{{artist}} ... "{{title}}" ... from {{song.user_id.email}} <button id="remove">remove</button> <a href="#">up</a> <a href="#">down</a></li>
+    <li>{{video_title}} ... from {{user_email}} {{ song_id }}<button id="remove_<%=song.id%>">x</button> </li>
     {{/songs}}
 
 

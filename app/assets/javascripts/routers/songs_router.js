@@ -19,10 +19,6 @@ Juketube.Routers.Router = Backbone.Router.extend({
     Backbone.history.start({ pushState: true });
   },
 
-  index: function(){
-    this.songsList.fetch();
-  },
-
   show: function(id){
     alert(id);
     this.songsList.focusOnSongsList(id);

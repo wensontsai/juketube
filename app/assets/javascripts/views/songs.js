@@ -12,10 +12,12 @@ Juketube.SongsView = Backbone.View.extend({
 
   initialize: function() {
     var self = this;
+
     this.collection = new Juketube.SongsList();
     var data = this.collection.fetch({
         success:function(collection) {
-          // console.log(data);
+          console.log(data);
+
           self.render();
 
     // success: function(collection) {
@@ -46,18 +48,6 @@ Juketube.SongsView = Backbone.View.extend({
     this.$el.html( this.template(songlist) );
     return this;
 
-    // var songlist = {song: this.model.map(function(x) {
-    //   return x.toJSON() })
-    // };
-
-    // this.$el.html( this.template( this.model.toJSON() ) );
-    // var newVoteView = new app.VoteView();
-    // this.$el.find('#vote-buttons').html(newVoteView( newVoteView.model.toJSON() ) );
-    // // this.$el.attr('comment_id', this.model.get('id'));
-    // // this.$input = this.$('#new-comment');
-    // // this.$upvote = this.$('.upvote');
-    // this.$el.attr('comment_id', this.model.get('id'));
-
     // this.$el.html( this.template( this.model.toJSON() ) );
     // var songView = new Juketube.SongView({model: song});
     // return this;
@@ -75,33 +65,36 @@ Juketube.SongsView = Backbone.View.extend({
       };
     },
 
-  addToYouTube: function (e) {
-    e.preventDefault();
+  // addToYouTube: function (e) {
+  //   e.preventDefault();
 
-    var request = '<?xml version="1.0" encoding="UTF-8"?>' +
-        '<entry xmlns="http://www.w3.org/2005/Atom"'+
-          'xmlns:yt="http://gdata.youtube.com/schemas/2007">' +
-        '<id>VIDEO_ID</id>' +
-        '<yt:position>1</yt:position>' +
-        '</entry>';
+  //   var request = '<?xml version="1.0" encoding="UTF-8"?>' +
+  //       '<entry xmlns="http://www.w3.org/2005/Atom"'+
+  //         'xmlns:yt="http://gdata.youtube.com/schemas/2007">' +
+  //       '<id>VIDEO_ID</id>' +
+  //       '<yt:position>1</yt:position>' +
+  //       '</entry>';
 
-    var headers = {
-      'Host': 'gdata.youtube.com',
-      'Content-Type': 'application/atom+xml',
-      // 'Content-Length': 'CONTENT_LENGTH',
-      'Authorization': 'Bearer ACCESS_TOKEN',
-      'GData-Version': 2,
-      'X-GData-Key': 'key=AIzaSyC2ck8yFy7yYRff1B0DTQAM9Cpu_ao8lSA'
-    };
+  //   var headers = {
+  //     'Host': 'gdata.youtube.com',
+  //     'Content-Type': 'application/atom+xml',
+  //     // 'Content-Length': 'CONTENT_LENGTH',
+  //     'Authorization': 'Bearer ACCESS_TOKEN',
+  //     'GData-Version': 2,
+  //     'X-GData-Key': 'key=AIzaSyC2ck8yFy7yYRff1B0DTQAM9Cpu_ao8lSA'
+  //   };
 
-    $.post('/feeds/api/playlists/PLOiWtzAHWI7kghjD8Cl44gsHNIQ9p--Ws HTTP/1.1', request, headers, function(response) {
-      alert(response);
-    });
-  },
+  //   $.post('/feeds/api/playlists/PLOiWtzAHWI7kghjD8Cl44gsHNIQ9p--Ws HTTP/1.1', request, headers, function(response) {
+  //     alert(response);
+  //   });
+  // },
+
+
   createOnClick: function(e){
     e.preventDefault();
-
-    var keyword = $(this.el).find('#artist_field').val() + " " + $(this.el).find('#title_field').val();
+    artist = $(this.el).find('#artist_field').val();
+    title = $(this.el).find('#title_field').val();
+    keyword = artist + " " + title;
 
       //query call to add to juketube playlist
       // function post(url, data, headers, success){
@@ -135,7 +128,8 @@ Juketube.SongsView = Backbone.View.extend({
           } else {
                  video_title = "no video";
           }
-        }
+
+        },
       });
 
     //append to DOM
@@ -151,9 +145,9 @@ Juketube.SongsView = Backbone.View.extend({
     var songView = new Juketube.SongView({model: song});
     this.$el.find("#playlist").append(songView.render().el);
 
-    //clear input fields
-    $('#artist_field').val('');
-    $('#title_field').val('');
+          //clear input fields
+          $('#artist_field').val('');
+          $('#title_field').val('');
   },
 
   clear: function(){
