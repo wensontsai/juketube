@@ -37,7 +37,7 @@ Juketube.SongsView = Backbone.View.extend({
     this.model = new Juketube.SongItem();
 
     this.listenTo(this.model, 'change', this.render);
-    this.listenTo(this.model, 'destroy', this.remove);    
+    this.listenTo(this.collection, 'destroy', this.hide, this);    
   },
 
 
@@ -49,7 +49,6 @@ Juketube.SongsView = Backbone.View.extend({
 
     };
 
-    debugger;
     this.$el.html( this.template(songlist) );
     return this;
 
@@ -121,6 +120,10 @@ Juketube.SongsView = Backbone.View.extend({
       //   });
       // }
       //query youtube to persist to rails
+
+      var self = this;
+
+
       $.ajax({
         type: "GET",
         url: 'http://gdata.youtube.com/feeds/api/videos?q='+keyword+'&format=5&max-results=1&v=2&alt=jsonc',
@@ -136,12 +139,12 @@ Juketube.SongsView = Backbone.View.extend({
           } else {
                  video_title = "no video";
           }
+          //append to DOM
+          self.addOne();
 
         },
       });
 
-    //append to DOM
-    this.addOne();
 
   },
 
@@ -158,13 +161,20 @@ Juketube.SongsView = Backbone.View.extend({
           $('#title_field').val('');
   },
 
-  clear: function(){
-    var model_id = $('.remove').attr('data-id');
-    this.model = this.collection.get(model_id);
-    this.model.destroy();
-    return this;
-    }
 
+  clear: function(event){
+  var _this = this;
+
+    $( "#playlist" ).delegate( "button", "click", function() {
+        var model_id = $(this).attr("data-id");  // model_id correct, and this = button
+        this.model = _this.collection.get(model_id);
+        this.model.destroy();
+        return this;
+
+    // $('.remove').attr(model_id);
+    });
+
+  }
 
   });
 
