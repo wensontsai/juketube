@@ -5,7 +5,7 @@ Juketube.SongsList = Backbone.Collection.extend({
   url: '/songs',
 
   initialize: function(){
-    this.bind('reset', this.destroyView);
+    // this.bind('reset', this.destroyView);
     // this.on('add', this.addOne, this);
     this.on('remove', this.hideModel);
 
@@ -32,17 +32,17 @@ Juketube.SongsList = Backbone.Collection.extend({
     this.addAll();
   },
 
-  destroyView: function() {
-    //COMPLETELY UNBIND THE VIEW
-    this.undelegateEvents();
+  // destroyView: function() {
+  //   //COMPLETELY UNBIND THE VIEW
+  //   this.undelegateEvents();
 
-    this.$el.removeData().unbind();
+  //   this.$el.removeData().unbind();
 
-    //Remove view from DOM
-    this.remove();
-    Backbone.View.prototype.remove.call(this);
+  //   //Remove view from DOM
+  //   this.remove();
+  //   Backbone.View.prototype.remove.call(this);
 
-  }
+  // }
 
 });
 

@@ -176,7 +176,7 @@ Juketube.SongsView = Backbone.View.extend({
 
     var songAddress = "http://www.youtube.com/embed/"+songID;
     console.log(songAddress);
-    $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "></iframe>");
+    $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "?autoplay=1 frameborder='0' allowfullscreen></iframe>");
 
     });
   },

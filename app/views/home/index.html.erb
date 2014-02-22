@@ -5,7 +5,9 @@
  -->
 <div id="test_player">
 </div>
-<Br>
+<br>
+
+
 <div id="player_controls">
 
 <!-- <button id="previous">previous</stop>
@@ -15,7 +17,7 @@
   <button id="shuffle">shuffle order</button>
 
 </div>
-<br><br>
+
   <!-- video player space ends -->
 
   <!-- playlist & user_add_section template starts -->
@@ -34,7 +36,7 @@ $(function() {
 
 
   var user_email = '<%=current_user.email%>' || 'please log in';
-  var user_id = <%=current_user.id%> || 1 ;
+  var user_id = <%=current_user.id%> || 0 ;
 
   var keyword;
   var artist;
