@@ -21,10 +21,9 @@
         <div class="content">
            <div class="row">
             <div class="span12">
-              <h4>Group Sounds</h4>
+              <h4 id="brand_logo">Group Sounds</h4>
 
            <!--    erb render 'layouts/messages'  -->
-
               <%= render 'layouts/user_widget' %>
               <br>
               <%= yield %>
@@ -36,5 +35,9 @@
         </div>
       </div>
     </main>
+
+
+    <script src="http://js.pusher.com/2.1/pusher.min.js"></script>
+
   </body>
 </html>

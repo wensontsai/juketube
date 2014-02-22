@@ -1,3 +1,5 @@
+<% if user_signed_in? %>
+
     <!-- video player space begins -->
 <!-- <div id="ytplayer"></div>
 
@@ -26,6 +28,7 @@
 
   <!-- playlist & user_add_section template ends -->
 
+<% end %>
 
 
 <script>
@@ -34,9 +37,10 @@ $(function() {
   Backbone.history.start();
 });
 
-
-  var user_email = '<%=current_user.email%>' || 'please log in';
-  var user_id = <%=current_user.id%> || 0 ;
+<% if user_signed_in? %>
+  var user_email = '<%=current_user.email%>';
+  var user_id = <%=current_user.id%>;
+<% end %>
 
   var keyword;
   var artist;
@@ -45,6 +49,18 @@ $(function() {
   var video_title;
   var songID = 'qZN02hVenCo';
   var model_id;
+
+
+
+  // pusher stuff
+  var pusher = new Pusher('66755');
+  var channel = pusher.subscribe('juketube90210');
+
+  channel.bind('my-event', function(data) {
+    alert('An event was triggered with message: ' + data.message);
+  });
+
+
 
 
   // Load the IFrame Player API code asynchronously.
