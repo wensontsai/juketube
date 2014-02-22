@@ -18,7 +18,6 @@ Juketube.SongsView = Backbone.View.extend({
     var data = this.collection.fetch({
         success:function(collection) {
           console.log(data);
-
           self.render();
 
     // success: function(collection) {
@@ -37,8 +36,13 @@ Juketube.SongsView = Backbone.View.extend({
 
     this.model = new Juketube.SongItem();
 
+
+
     this.listenTo(this.model, 'change', this.render);
-    this.listenTo(this.collection, 'destroy', this.hide, this);    
+    this.listenTo(this.collection, 'change', this.render, this);
+
+    this.listenTo(this.model, 'destroy', this.remove)
+    this.listenTo(this.collection, 'destroy', this.remove);    
   },
 
 
@@ -173,6 +177,7 @@ Juketube.SongsView = Backbone.View.extend({
     var songAddress = "http://www.youtube.com/embed/"+songID;
     console.log(songAddress);
     $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "></iframe>");
+
     });
   },
 
@@ -187,11 +192,13 @@ Juketube.SongsView = Backbone.View.extend({
         console.log(model_id);
         this.model = _this.collection.get(model_id);
 
-        $('#remove' +model_id).hide();
 
+        $("#remove_"+model_id).remove();
+        // Backbone.View.prototype.remove.call($("#remove_"+model_id));
 
         this.model.destroy();
         return this;
+
     });
 
   }

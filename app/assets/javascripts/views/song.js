@@ -79,7 +79,6 @@ Juketube.SongView = Backbone.View.extend({
 
 
   clear: function(){
-    console.log(this.model);
     this.model.destroy();
     return this;
   }
