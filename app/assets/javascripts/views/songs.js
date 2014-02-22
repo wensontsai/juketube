@@ -7,7 +7,8 @@ Juketube.SongsView = Backbone.View.extend({
   events: {
     'click #add_to_queue'  : 'createOnClick',
     // 'click #add_to_queue'  : 'addToYouTube',
-    'click .remove' : 'clear'
+    'click .remove' : 'clear',
+    'click .play' : 'play2'
   },
 
   initialize: function() {
@@ -162,16 +163,35 @@ Juketube.SongsView = Backbone.View.extend({
   },
 
 
+  play2: function(event){
+    event.preventDefault();
+
+    $('.play').click(function(event){
+       songID = $(this).attr("data-id");
+       console.log(songID);
+
+    var songAddress = "http://www.youtube.com/embed/"+songID;
+    console.log(songAddress);
+    $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "></iframe>");
+    });
+  },
+
+
+
+
   clear: function(event){
   var _this = this;
 
     $( "#playlist" ).delegate( "button", "click", function() {
         var model_id = $(this).attr("data-id");  // model_id correct, and this = button
+        console.log(model_id);
         this.model = _this.collection.get(model_id);
+
+        $('#remove' +model_id).hide();
+
+
         this.model.destroy();
         return this;
-
-    // $('.remove').attr(model_id);
     });
 
   }

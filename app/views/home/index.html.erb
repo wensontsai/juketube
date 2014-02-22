@@ -1,7 +1,11 @@
     <!-- video player space begins -->
-<div id="ytplayer"></div>
+<!-- <div id="ytplayer"></div>
 
   <br>
+ -->
+<div id="test_player">
+</div>
+<Br>
 <div id="player_controls">
 
 <!-- <button id="previous">previous</stop>
@@ -50,11 +54,12 @@ $(function() {
   // YouTube player after the API code downloads.
   var player;
 
- function onYouTubePlayerAPIReady() {
+ function onYouTubePlayerAPIReady(event) {
       player = new YT.Player('ytplayer', {
         height: '390',
         width: '640',
         videoId: songID,
+        autoplay: 1,
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -101,11 +106,11 @@ $(function() {
   // }
 
 
-  $('.play').click(function(event){
-    event.preventDefault();
-      onYouTubePlayerAPIReady(songID);
+  // $('.play').click(function(event){
+  //   event.preventDefault();
+  //     onYouTubePlayerAPIReady(songID);
 
-  });
+  // });
 
 
   // $('#stop').click(function(event){
@@ -113,7 +118,6 @@ $(function() {
   //     pauseVideo();
 
   // });
-
 
 
 </script>
