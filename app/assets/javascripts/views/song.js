@@ -56,7 +56,7 @@ Juketube.SongView = Backbone.View.extend({
        songID = $(this).attr("data-id");
        console.log(songID);
 
-    var songAddress = "http://www.youtube.com/embed/"+songID
+    var songAddress = "http://www.youtube.com/embed/"+songID;
     console.log(songAddress);
     $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "></iframe>");
     });
@@ -79,6 +79,7 @@ Juketube.SongView = Backbone.View.extend({
 
 
   clear: function(){
+
     this.model.destroy();
     return this;
   }

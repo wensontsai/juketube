@@ -29,6 +29,7 @@ body { padding-top: 60px; }
  *= require_self
  *= require_tree .
  */
+ body { overflow: hidden; }
 
 #brand_logo {
   color: #3299CC;
@@ -38,6 +39,7 @@ body { padding-top: 60px; }
 #playlist {
   height: 200px;
   overflow: hidden;
+  overflow-y:auto;
   width: 640px
 }
 

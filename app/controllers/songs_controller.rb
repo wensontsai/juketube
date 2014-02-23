@@ -25,7 +25,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       if @song.save
 
-          Pusher['juketube90210'].trigger!("post:change", "")
+          # Pusher['juketube90210'].trigger!("post:change", "")
 
         # Pusher['question_1_questions'].trigger('new_question_event', @question.to_json)
 
