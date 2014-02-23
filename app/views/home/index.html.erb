@@ -52,17 +52,6 @@ $(function() {
 
 
 
-  // pusher stuff
-  var pusher = new Pusher('66755');
-  var channel = pusher.subscribe('juketube90210');
-
-  channel.bind('my-event', function(data) {
-    alert('An event was triggered with message: ' + data.message);
-  });
-
-
-
-
   // Load the IFrame Player API code asynchronously.
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/player_api";

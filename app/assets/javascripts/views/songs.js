@@ -41,16 +41,25 @@ Juketube.SongsView = Backbone.View.extend({
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.collection, 'change', this.render, this);
 
-    this.listenTo(this.model, 'destroy', this.remove)
-    this.listenTo(this.collection, 'destroy', this.remove);    
+    this.listenTo(this.model, 'destroy', this.remove);
+    this.listenTo(this.collection, 'destroy', this.remove);
+
+    //pusher stuff
+      // Application.notifier.on("post:change", this.postChanged, this);
+
   },
+
+    //pusher function
+      postChanged: function() {
+        this.collection.fetch();
+      },
 
 
   render: function(){
     user_email = user_email;
     var songlist = {songs: this.collection.models.map(function(x) {
       // console.log(x);
-      return x.toJSON() })
+      return x.toJSON(); })
 
     };
 

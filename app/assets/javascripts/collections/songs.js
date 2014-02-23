@@ -49,4 +49,36 @@ Juketube.SongsList = Backbone.Collection.extend({
 Juketube.Songs = new Juketube.SongsList();
 
 
+ // pusher stuff
+  var pusher = new Pusher('66755');
+  var channel = pusher.subscribe('juketube90210');
+  new Backpusher('juketube90210', Juketube.SongsList);
+
+  //pusher stuff
+      //notifier
+        // var Application.Notifier = (function() {
+
+        //     function Notifier() {
+        //       _.extend(this, Backbone.Events);
+        //       this.pusher = new Pusher(CHANNEL_ID);
+        //       this.channels = {};
+        //     }
+
+        //     Notifier.prototype.subscribe = function(channel) {
+        //       var self = this;
+        //       this.channels[channel] = this.pusher.subscribe(channel);
+        //       this.channels[channel].bind_all(function(event, data) {
+        //         self.trigger(event, data);
+        //       });
+        //   };
+
+        //   return Notifier;
+
+        // })();
+
+        // //initialize
+        // Application.notifier = new Application.Notifier();
+        // Application.notifier.subscribe("juketube90210");
+
+
 
