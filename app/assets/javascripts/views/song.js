@@ -68,7 +68,8 @@ Juketube.SongView = Backbone.View.extend({
      $('.play').click(function(event){
        songID = $(this).attr("data-id");
        console.log(songID);
-       $('#ytplayer').youTubeEmbed('http://www.youtube.com/watch?v='+songID);
+       $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "?autoplay=1 frameborder='0' allowfullscreen></iframe>");
+
        // ytplayer.cueVideoById(songID);
        // ytplayer.onYouTubePlayerAPIReady(songID);
     });

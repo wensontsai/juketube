@@ -42,8 +42,30 @@ $(function() {
   var title;
   var video_id;
   var video_title;
-  var songID = 'qZN02hVenCo';
+  var songID;
   var model_id;
+
+          <% @songs = Song.all %>
+          <% all_song_urls = [] %>
+
+          <% @songs.each do |song| %>
+              <% all_song_urls << song.video_id %>
+          <% end %>
+
+  var dinofuck = <%= raw all_song_urls.to_json.gsub("</", "<\\/") %>;
+
+  $('#shuffle').click(function(event){
+      event.preventDefault();
+
+      var indexRandom = Math.floor(Math.random() * dinofuck.length);
+      songID = dinofuck[indexRandom];
+
+
+    var songAddress = "http://www.youtube.com/embed/"+songID;
+    console.log(songAddress);
+    $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "?autoplay=1 frameborder='0' allowfullscreen></iframe>");
+  });
+
 
 
 
@@ -100,9 +122,6 @@ $(function() {
   // }
 
 
-  // $('#shuffle').click(randomShuffle(e){
-  //   e.preventDefault();
-  // });
 
   // var random = function(event){
   //   player.setShuffle( shufflePlaylist:true );

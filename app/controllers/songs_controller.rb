@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  attr_accessor :current_user_email
+  attr_accessor :current_user_email, :songs
 
   def index
     @songs = Song.all
