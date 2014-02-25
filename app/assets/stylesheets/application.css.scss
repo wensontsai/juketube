@@ -31,16 +31,21 @@ body { padding-top: 60px; }
  */
  body { overflow: hidden; }
 
+#now_playing_song {
+  color: #3299CC;
+  padding-left: 50px;
+}
+
 #brand_logo {
   color: #3299CC;
 }
 
 
 #playlist {
-  height: 200px;
+  height: 195px;
   overflow: hidden;
   overflow-y:auto;
-  width: 640px
+  width: 620px
 }
 
 
@@ -49,7 +54,7 @@ body { padding-top: 60px; }
   border-radius: 25px;
   margin-right: 43px;
   height: 200px;
-  width:640px;
+  width: 640px;
 }
 
 #previous,

@@ -49,34 +49,37 @@ Juketube.SongView = Backbone.View.extend({
       });
   },
 
-  play2: function(event){
-    event.preventDefault();
+play2: function(event){
 
     $('.play').click(function(event){
        songID = $(this).attr("data-id");
+       video_title = $(this).attr("data-title");
        console.log(songID);
 
     var songAddress = "http://www.youtube.com/embed/"+songID;
     console.log(songAddress);
-    $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "></iframe>");
+    $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "?autoplay=1 frameborder='0' allowfullscreen></iframe>");
+
     });
+
+     $("#now_playing_song").html(video_title);
   },
 
 
-  play: function(event){
-    var self = this;
-     $('.play').click(function(event){
-       songID = $(this).attr("data-id");
-       console.log(songID);
-       $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "?autoplay=1 frameborder='0' allowfullscreen></iframe>");
+  // play: function(event){
+  //   var self = this;
+  //    $('.play').click(function(event){
+  //      songID = $(this).attr("data-id");
 
-       // ytplayer.cueVideoById(songID);
-       // ytplayer.onYouTubePlayerAPIReady(songID);
-    });
-  },
+  //      console.log(songID);
+  //      $("#test_player").html("<iframe id='ytplayer' type='text/html' width='640' height='390' src=" +songAddress+ "?autoplay=1 frameborder='0' allowfullscreen></iframe>");
+
+  //      // ytplayer.cueVideoById(songID);
+  //      // ytplayer.onYouTubePlayerAPIReady(songID);
+  //   });
 
 
-
+  // },
 
 
   clear: function(){
