@@ -7,7 +7,7 @@
 
     {{#songs}}
     <li id='remove_{{id}}'>
-    <span class="video_name">{{video_title}}</span>  ... <span id="user_{{user_id}}">(user_{{user_id}})</span> ... <button class='remove btn btn-default btn-xs'  ' data-id='{{id}}'>x</button><button class='play btn btn-default btn-xs' id="play_{{video_id}}" data-title='{{video_title}}' data-id='{{video_id}}'>></button>
+    <button class="video_name play btn btn-default btn-xs" id="play_{{video_id}}" data-title='{{video_title}}' data-id='{{video_id}}'>{{video_title}}</button> <span id="user_{{user_id}}">(user_{{user_id}})</span> <button class='remove btn btn-default btn-xs' data-id='{{id}}'>x</button>
 </li>
     {{/songs}}
 
