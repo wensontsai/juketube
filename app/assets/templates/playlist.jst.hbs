@@ -7,7 +7,7 @@
 
     {{#songs}}
     <li id='remove_{{id}}'>
-    <span class="video_name">{{video_title}}</span>  ... <span id="user_{{user_id}}">(user_{{user_id}})</span> ... <button class='remove'  ' data-id='{{id}}'>x</button><button class='play'id="play_{{video_id}}" data-title='{{video_title}}' data-id='{{video_id}}'>></button>
+    <span class="video_name">{{video_title}}</span>  ... <span id="user_{{user_id}}">(user_{{user_id}})</span> ... <button class='remove btn btn-default btn-xs'  ' data-id='{{id}}'>x</button><button class='play btn btn-default btn-xs' id="play_{{video_id}}" data-title='{{video_title}}' data-id='{{video_id}}'>></button>
 </li>
     {{/songs}}
 
@@ -24,7 +24,7 @@
     <input type="text" id="artist_field">
     title:
     <input type="text" id="title_field">
-    <button id="add_to_queue">Add to Queue</button>
+    <button class="btn btn-default btn-sm" id="add_to_queue">Add to Queue</button>
   </form>
 </div>
 <br><br><br>
