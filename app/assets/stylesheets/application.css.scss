@@ -29,6 +29,25 @@ body { padding-top: 60px; }
  *= require_self
  *= require_tree .
  */
+
+#user_1 {
+  color: orange;
+}
+#user_2 {
+  color: red;
+}
+#user_3 {
+  color: pink;
+}
+#user_4 {
+  color: yellow;
+}
+
+.video_name {
+  color: #3299CC;
+}
+
+
  body { overflow: hidden; }
 
 #now_playing_song {
